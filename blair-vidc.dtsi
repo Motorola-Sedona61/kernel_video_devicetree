@@ -36,7 +36,8 @@
 
 		qcom,reg-presets = <0xB0080 0x0 0x03>;
 		/* Video Firmware ELF image name */
-		vidc,firmware-name = "venus_ecdsa";
+		/* The bootloader reserves 5 MiB for Venus on these Blair boards. */
+		vidc,firmware-name = "venus_5mb_ecdsa";
 		/* Bus Interconnects */
 		interconnect-names = "venus-cnoc", "venus-ddr";
 		interconnects = <&bimc MASTER_AMPSS_M0
