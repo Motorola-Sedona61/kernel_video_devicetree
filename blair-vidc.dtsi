@@ -1,6 +1,6 @@
 &soc {
 	msm_vidc: qcom,vidc@5a00000 {
-		compatible = "qcom,msm-vidc","qcom,msm-vidc-blair", "qcom,msm-vidc-ar50lt";
+		compatible = "qcom,msm-vidc", "qcom,holi-vidc";
 		status = "okay";
 		reg = <0x5a00000 0x200000>;
 		interrupts = <GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH>;
@@ -51,6 +51,7 @@
 		non_secure_cb {
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_ns";
+			buffer-types = <0xfff>;
 			iommus =
 				<&apps_smmu 0xc60 0x00>,
 				<&apps_smmu 0xc80 0x00>;
@@ -62,6 +63,7 @@
 		secure_bitstream_cb {
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_sec_bitstream";
+			buffer-types = <0x241>;
 			iommus =
 				<&apps_smmu 0xc61 0x04>;
 			qcom,iommu-dma-addr-pool = <0x4b000000 0x25800000>;
@@ -74,6 +76,7 @@
 		secure_pixel_cb {
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_sec_pixel";
+			buffer-types = <0x106>;
 			iommus =
 				<&apps_smmu 0xc63 0x0>;
 			qcom,iommu-dma-addr-pool = <0x25800000 0x25800000>;
@@ -86,6 +89,7 @@
 		secure_non_pixel_cb {
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_sec_non_pixel";
+			buffer-types = <0x480>;
 			iommus =
 				<&apps_smmu 0xc04 0xE0>;
 			qcom,iommu-dma-addr-pool = <0x1000000 0x24800000>;
