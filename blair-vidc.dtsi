@@ -35,9 +35,8 @@
 			384000000>;
 
 		qcom,reg-presets = <0xB0080 0x0 0x03>;
-		/* Video Firmware ELF image name */
-		/* The bootloader reserves 5 MiB for Venus on these Blair boards. */
-		vidc,firmware-name = "venus_5mb_ecdsa";
+		/* Motorola-signed 5 MiB firmware in the mounted modem partition. */
+		vidc,firmware-name = "venus.mdt";
 		/* Bus Interconnects */
 		interconnect-names = "venus-cnoc", "venus-ddr";
 		interconnects = <&bimc MASTER_AMPSS_M0
